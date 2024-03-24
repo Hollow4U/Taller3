@@ -8,15 +8,17 @@ namespace ConsoleApp1
 {
     class Class1
     {
-        public float b;
-        public float h;
 
-        public float Perimetro(float P)
+        static public float b;
+        static public float h;
+        
+        static public float Perimetro(float P)
         {
-            P = 2*(b + h);
+            P = 2 * (b + h);
             return P;
         }
-        public float Area(float A)
+
+        static public float Area(float A)
         {
             A = b * h;
             return A;
