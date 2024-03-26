@@ -10,6 +10,8 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
+            Menu M = new Menu();
+            M.Execute();
         }
     }
 }
