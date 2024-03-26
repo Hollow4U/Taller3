@@ -8,7 +8,7 @@ namespace ConsoleApp1
 {
     class Menu
     {
-        public void Execute()
+        public void Ejecutar()
         {
             bool continueFlag = true;
             while (continueFlag)
@@ -20,9 +20,9 @@ namespace ConsoleApp1
                 Console.WriteLine("4. Calculadora");
                 Console.WriteLine("5. Crear forma");
                 Console.WriteLine("6. Operar figuras");
-                int option = int.Parse(Console.ReadLine());
+                int eleccion = int.Parse(Console.ReadLine());
 
-                switch (option)
+                switch (eleccion)
                 {
                     case 1:
                         {
@@ -36,18 +36,22 @@ namespace ConsoleApp1
                         }
                     case 3:
                         {
+                            Años();
                             break;
                         }
                     case 4:
                         {
+                            Calculadora();
                             break;
                         }
                     case 5:
                         {
+                            Formas();
                             break;
                         }
                     case 6:
                         {
+                            Constructor();
                             break;
                         }
                     default:
@@ -70,20 +74,60 @@ namespace ConsoleApp1
         }
         private void Triangulo()
         {
-            float L1;
-            float L2;
-            float L3;
-            Console.WriteLine("Introduce el lado inferior del triangulo");
-            L1 = float.Parse(Console.ReadLine());
-            Console.WriteLine("Introduce el lado derecho del triangulo");
-            L2 = float.Parse(Console.ReadLine());
-            Console.WriteLine("Introduce el lado izquierdo del triangulo");
-            L3 = float.Parse(Console.ReadLine());
-            Console.WriteLine($"El are de un triangulo e: {(L1 + L2 + L3) / 2}");
+            float B;
+            float H;
+            Console.WriteLine("Introduce la base del triangulo");
+            B = float.Parse(Console.ReadLine());
+            Console.WriteLine("Introduce la altura derecho del triangulo");
+            H = float.Parse(Console.ReadLine());
+            Console.WriteLine($"El area de un triangulo es: {(B * H)/ 2}");
         }
         private void Años()
         {
+            Console.WriteLine("Introduce el año: ");
+            int año = int.Parse(Console.ReadLine());
 
+            if(año % 4 == 0)
+            {
+                if (año % 100 == 0)
+                {
+                    if(año % 400 == 0)
+                    {
+                        Console.WriteLine($"{año} es un año bisiesto");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{año} no es un año bisiesto");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"{año} es un año bisiesto");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"{año} no es un año bisiesto");
+            }
         }
+
+        private void Calculadora()
+        {
+            Class1 calculadora = new Class1();
+            calculadora.Ejecutar();
+        }
+
+        private void Formas()
+        {
+            Class2 formas = new Class2();
+            formas.Ejecutar();
+        }
+        
+        private void Constructor()
+        {
+            Class3 constructor = new Class3();
+            constructor.Ejecutar();
+        }
+
     }
 }
