@@ -10,6 +10,8 @@ namespace ConsoleApp1
     {
         string name;
         List<Weapons> listArmas = new List<Weapons>();
+        int arrow = 0;
+        int bullet = 0;
 
         public void Execute()
         {
@@ -50,6 +52,8 @@ namespace ConsoleApp1
                 Console.WriteLine("1. Espada");
                 Console.WriteLine("2. Arco");
                 Console.WriteLine("3. Pistola");
+                Console.WriteLine("4. Flechas");
+                Console.WriteLine("5. Balas");
 
                 int option = int.Parse(Console.ReadLine());
 
@@ -63,6 +67,16 @@ namespace ConsoleApp1
                         break;
                     case 3:
                         GetPistol();
+                        break;
+                    case 4:
+                        money -= 5;
+                        arrow += 20;
+                        Console.WriteLine($"Compraste 20 flechas, se desconto 5 de dinero y te quedan {money} de dinero");    
+                        break;
+                    case 5:
+                        money -= 15;
+                        bullet += 20;
+                        Console.WriteLine($"Compraste 20 balas, se desconto 15 de dinero y te quedan {money} de dinero");
                         break;
                     default:
                         Console.WriteLine("No existe la opcion");
@@ -97,8 +111,13 @@ namespace ConsoleApp1
 
             Bow GetBow()
             {
+                Console.WriteLine("Esta arma requiere flechas cada una hace 20 de daño");
                 Console.WriteLine("Introducir el daño del arma:");
                 float DMG = float.Parse(Console.ReadLine());
+                if (arrow > 0)
+                {
+                    DMG = DMG + 20;
+                }
                 Console.WriteLine("Introducir la velocidad de ataque del arma:");
                 float DPS = float.Parse(Console.ReadLine());
                 Console.WriteLine("Introducir el precio deseado:");
@@ -122,8 +141,13 @@ namespace ConsoleApp1
 
             Pistol GetPistol()
             {
+                Console.WriteLine("Esta arma requiere balas y cada una hace 50 de daño");
                 Console.WriteLine("Introducir el daño del arma:");
                 float DMG = float.Parse(Console.ReadLine());
+                if (bullet > 0)
+                {
+                    DMG = DMG + 50;
+                }
                 Console.WriteLine("Introducir la velocidad de ataque del arma:");
                 float DPS = float.Parse(Console.ReadLine());
                 Console.WriteLine("Introducir el precio deseado:");
@@ -149,7 +173,7 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("¿Que operacion quieres realizar?:");
                 Console.WriteLine("1. Ver las armas disponibles");
-                Console.WriteLine("2. Vender arma");
+                Console.WriteLine("2. Eliminar arma");
 
                 int option = int.Parse(Console.ReadLine());
 
@@ -158,11 +182,17 @@ namespace ConsoleApp1
                     case 1:
                         foreach(Weapons NICK in listArmas)
                         {
-                            Console.WriteLine($"{Weapons.NICK()}");
+                            Console.WriteLine($"{NICK.GetName()}");
                         }
                         break;
                     case 2:
-                        Console.WriteLine("No existe la opcion");
+                        foreach (Weapons NICK in listArmas)
+                        {
+                            Console.WriteLine($"{NICK.GetName()}");
+                        }
+                        Console.WriteLine("Ingrese el numero del arma que desea eliminar: ");
+                        int i = int.Parse(Console.ReadLine());
+                        listArmas.RemoveAt(i);
                         break;
                     default:
                         Console.WriteLine("No existe la opcion");

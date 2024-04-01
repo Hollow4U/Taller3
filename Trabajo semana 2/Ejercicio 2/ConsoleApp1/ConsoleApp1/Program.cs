@@ -12,8 +12,6 @@ namespace ConsoleApp1
         {
             Menu M = new Menu();
             M.Execute();
-
-
         }
     }
 }
