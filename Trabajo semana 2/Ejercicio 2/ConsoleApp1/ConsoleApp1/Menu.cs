@@ -156,9 +156,9 @@ namespace ConsoleApp1
                 switch (option)
                 {
                     case 1:
-                        foreach(Weapons Nick in listArmas)
+                        foreach(Weapons NICK in listArmas)
                         {
-                            Console.WriteLine($"{Nick.ToString()}");
+                            Console.WriteLine($"{Weapons.NICK()}");
                         }
                         break;
                     case 2:
