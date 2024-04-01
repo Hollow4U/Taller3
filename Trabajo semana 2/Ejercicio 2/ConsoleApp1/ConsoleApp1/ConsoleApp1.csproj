@@ -43,9 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bow.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="Pistol.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sword.cs" />
     <Compile Include="Weapons.cs" />
   </ItemGroup>
   <ItemGroup>
